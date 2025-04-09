@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block pagetitle %}Изучение лексики китайского языка{% endblock %}</title>
+    {% load static %}
+    <link href="{% static 'bootstrap.min.css' %}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+        h1, h2 {
+            color: #007bff;
+        }
+        #title-box {
+            background-color: #e9ecef;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        li {
+            background: #ffffff;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            padding: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #e9ecef;
+            border-top: 1px solid #dee2e6;
+        }
+    </style>
+</head>
+<body>
+<main>
+
+
+
+{% extends "base_page.html" %}
+
+{% block page-title %}
+Статистика по словам и иероглифам
+{% endblock %}
+
+{% block content %}
+<div class="container px-4 py-5" id="stats">
+    <h2 class="text-center mb-4">Статистика по словам и иероглифам</h2>
+    
+    <div class="row mb-5">
+        <div class="col-md-4">
+            <div class="card shadow-sm border-light">
+                <div class="card-header bg-info text-white">
+                    <h4 class="mb-0">Количество слов</h4>
+                </div>
+                <div class="card-body text-center">
+                    <h3>{{ words_all }}</h3>
+                    <p class="text-muted">всего</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow-sm border-light">
+                <div class="card-header bg-info text-white">
+                    <h4 class="mb-0">Изначально в базе</h4>
+                </div>
+                <div class="card-body text-center">
+                    <h3>{{ words_own }}</h3>
+                    <p class="text-muted">изначально бывших в базе</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow-sm border-light">
+                <div class="card-header bg-info text-white">
+                    <h4 class="mb-0">Добавленные слова</h4>
+                </div>
+                <div class="card-body text-center">
+                    <h3>{{ words_added }}</h3>
+                    <p class="text-muted">добавленных через <a href="/add-word" class="text-decoration-none">форму добавления слов</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+ <div class="row mb-5">
+        <div class="col-md-4">
+            <div class="card shadow-sm border-light">
+                <div class="card-header bg-info text-white">
+                    <h4 class="mb-0">Количество иероглифов</h4>
+                </div>
+                <div class="card-body text-center">
+                    <h3>{{ characters_all }}</h3>
+                    <p class="text-muted">всего</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow-sm border-light">
+                <div class="card-header bg-info text-white">
+                    <h4 class="mb-0">Изначально в базе</h4>
+                </div>
+                <div class="card-body text-center">
+                    <h3>{{ characters_own }}</h3>
+                    <p class="text-muted">изначально бывших в базе</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow-sm border-light">
+                <div class="card-header bg-info text-white">
+                    <h4 class="mb-0">Добавленные иероглифы</h4>
+                </div>
+                <div class="card-body text-center">
+                    <h3>{{ characters_added }}</h3>
+                    <p class="text-muted">добавленных через <a href="/add-word" class="text-decoration-none">форму добавления иероглифов</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block pagetitle %}Изучение лексики китайского языка{% endblock %}</title>
+    {% load static %}
+    <link href="{% static 'bootstrap.min.css' %}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+        h1, h2 {
+            color: #007bff;
+        }
+        #title-box {
+            background-color: #e9ecef;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        li {
+            background: #ffffff;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            padding: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #e9ecef;
+            border-top: 1px solid #dee2e6;
+        }
+        .card {
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .form-control {
+            border-radius: 5px;
+        }
+        .form-text {
+            font-size: 0.9em;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+<main>
+{% extends "base_page.html" %}
+
+{% block page-title %}
+Добавить иероглиф
+{% endblock %}
+
+{% block content %}
+<div class="container-sm px-5 py-5" id="word-form">
+    <form method="post">
+        {% csrf_token %}
+        <div class="row mb-4">
+            <div class="col-md-12">
+                <h3 class="text-center">Добавьте новый иероглиф</h3>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header bg-info text-white">
+                <h4 class="mb-0">Ваши контактные данные</h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="name">Ваше имя:</label>
+                        <input type="text" class="form-control" name="name" id="name" placeholder="Иван" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="email">Ваш контактный email:</label>
+                        <input type="email" class="form-control" name="email" id="email" placeholder="ivan@ivanov.com" required>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header bg-warning text-dark">
+                <h4 class="mb-0">Ваш иероглиф</h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="new_character">Иероглиф:</label>
+                        <input type="text" class="form-control" name="new_character" id="new_character" required>
+                    </div>
+                    <div class="col-md-8 mb-3">
+                        <label for="new_pinyin">Пиньинь:</label>
+                        <textarea class="form-control" name="new_pinyin" id="new_pinyin" aria-describedby="pinyin_note" rows="3" required></textarea>
+                        <div id="transcription_note" class="form-text">Напишите пиньинь иероглифа без указания тона.</div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-8 mb-3">
+                        <label for="new_translation">Тон:</label>
+                        <textarea class="form-control" name="new_tone" id="new_tone" aria-describedby="tone_note" rows="3" required></textarea>
+                        <div id="tone_note" class="form-text">Напишите тон иероглифа цифрой от 1 до 4.</div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-8 mb-3">
+                        <label for="new_meaning">Значение иероглифа:</label>
+                        <textarea class="form-control" name="new_meaning" id="new_meaning" aria-describedby="meaning_note" rows="3" required></textarea>
+                        <div id="meaning_note" class="form-text">Напишите значение иероглифа.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mb-4">
+            <button type="submit" class="btn btn-primary">Отправить</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
+</main>
+
+<footer>
+    <p>&copy; 2025 Изучение лексики китайского языка</p>
+</footer>
+
+</body>
+</html>

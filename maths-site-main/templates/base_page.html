@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block pagetitle %}Изучение лексики китайского языка{% endblock %}</title>
+    {% load static %}
+    <link href="{% static 'bootstrap.min.css' %}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+        h1, h2 {
+            color: #007bff;
+        }
+        #title-box {
+            background-color: #e9ecef;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        li {
+            background: #ffffff;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            padding: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #e9ecef;
+            border-top: 1px solid #dee2e6;
+        }
+    </style>
+</head>
+<body>
+<main>
+    <div class="container">
+        <header class="border-bottom">
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                <div class="fs-2 mb-3">
+                    <img src="{% static 'chinese_language.svg' %}" alt="Изучение китайского языка" width="32" height="32"/>
+                    <span>Изучение китайского языка</span>
+                </div>
+            </a>
+        </header>
+        <div class="p-5 mb-4 bg-light rounded-3" id="title-box">
+            <div class="container-fluid py-5">
+                <h1 class="display-1 fw-bold">{% block page-title %}Лексика китайского языка{% endblock %}</h1>
+                <p class="col-md-8 fs-4">{% block page-lead %}Погружение в мир китайских слов и фраз!{% endblock %}</p>
+            </div>
+        </div>
+        {% block content %}
+        <section>
+            <h2>Интересные факты о китайском языке</h2>
+            <ul>
+                <li>Китайский язык — один из самых древних языков в мире, его история насчитывает более 3000 лет.</li>
+                <li>В китайском языке используется более 50 000 иероглифов, хотя для повседневного общения достаточно знать около 2000.</li>
+                <li>Китайский язык является тональным: изменение тона может изменить значение слова.</li>
+                <li>Китайский язык является официальным языком более чем 1 миллиарда человек, что делает его самым распространенным языком в мире.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Популярные фразы на китайском</h2>
+            <ul>
+                <li><strong>你好 (Nǐ hǎo)</strong> - Привет!</li>
+                <li><strong>谢谢 (Xièxiè)</strong> - Спасибо!</li>
+                <li><strong>再见 (Zàijiàn)</strong> - До свидания!</li>
+                <li><strong>请问 (Qǐngwèn)</strong> - Извините, можно спросить?</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Тоны в китайском языке</h2>
+            <p>Китайский язык является тональным, что означает, что высота и интонация звуков могут изменять значение слов. В стандартном мандаринском диалекте существуют четыре основных тона:</p>
+            <ol>
+            	<li><strong>Первый тон (¯)</strong>: высокий и ровный. Например, 是 (shī) - "быть".</li>
+        	<li><strong>Второй тон (ˊ)</strong>: восходящий, как вопрос. Например, 师 (shí) - "учитель".</li>
+   	        <li><strong>Третий тон (ˇ)</strong>: низкий и затем восходящий. Например, 市 (shǐ) - "город".</li>
+       	        <li><strong>Четвертый тон (ˋ)</strong>: резкий и нисходящий. Например, 试 (shì) - "пробовать".</li>
+    </ol>
+            <p>Важно правильно произносить тоны, так как даже небольшое изменение может привести к неправильному пониманию.</p>
+        </section>
+
+        {% endblock %}
+        <footer class="footer pt-3 mt-4 text-muted border-top">© 2025 Изучение китайского языка</footer>
+    </div>
+</main>
+</body>
+</html>
+
